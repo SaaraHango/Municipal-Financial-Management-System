@@ -19,6 +19,13 @@ void calculateBudgets(Department depts[],int count);
 void displayBudgetInformation(Department depts[], int count);
 void displayStatus(Department depts[], int count);
 int main(){
+Department departments[MAX_DEPARMENTS];
+int count = 0;
+int choice;
 
+do{
+    printf("\n====================MUNICIPAL BUDGET MANAGEMENT SYSTEM==========================\n");
+    printf("1. Enter budget data\n";)
+}
     return 0;
 }
