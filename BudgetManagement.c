@@ -44,25 +44,41 @@ do{
     getchar();
 
         switch (choice) {
+
             case 1:
                 enterBudgetData(departments, &count);
                 // automatically reclculate remaining budgets and status after entering
                 calculateBudgets(departments, count);
                 break;
+
             case 2:
                 displayBudgetInformation(departments, count);
                 break;
+
             case 3:
                 displayStatus(departments, count);
                 break;
+
             case 4:
                 printf("\nExiting Budget Management System. Goodbye!\n");
                 break;
+
             default:
                 printf("\nInvalid selection. Please enter a number between 1 and 4.\n");
         }
     } while (choice != 4);
 
-}
     return 0;
+}
+
+// we need to enter departmental name, allocated budget anf expenditure
+void enterBudgetData(Department depts[], int count){
+    //the * is a pointer
+    // perhaps the pointer needs a int data type
+    if (*count >= MAX_DEPARTMENTS){
+        printf("\nMaximum department Limit (%d) reached.\n", MAX_DEPARTMENTS);
+
+        return;
+    }
+    
 }
