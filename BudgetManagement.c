@@ -76,9 +76,30 @@ void enterBudgetData(Department depts[], int count){
     //the * is a pointer
     // perhaps the pointer needs a int data type
     if (*count >= MAX_DEPARTMENTS){
-        printf("\nMaximum department Limit (%d) reached.\n", MAX_DEPARTMENTS);
-
+        printf("\nMaximum department limit (%d) reached.\n", MAX_DEPARTMENTS);
         return;
     }
-    
+
+}
+
+printf("\n---Enter Department Details---\n");
+    printf("Department Name: ");
+    fgets (depts[*count].nameDepartment, MAX_NAME_LENGTH, stdin);
+    // remove the trailing newline character from fgets
+    depts[*count].nameDepartment[strcspn(depts[*count].nameDepartment, "\n")] = '\0';
+
+    printf("Allocated Budget (N$): ");
+    while (scanf("%lf", &depts[*count].allocatedBudget) != 1 || depts[*count].allocatedBudget < 0) {
+        while (getchar() != '\n');
+        printf("Invalid input. Enter a valid positive budget amount (N$): ");
+    }
+
+    printf("Expenditure (N$): ");
+    while (scanf("%lf", &depts[*count].expenditure) != 1 || depts[*count].expenditure < 0) {
+        while (getchar() != '\n');
+        printf("Invalid input. Enter a valid positive expenditure amount (N$): ");
+    }
+
+    (*count)++;
+    printf("Department budget successfully added!\n");
 }
