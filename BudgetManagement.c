@@ -27,13 +27,11 @@ int choice;
 do{
     printf("\n====================MUNICIPAL BUDGET MANAGEMENT SYSTEM==========================\n");
     printf("1. Enter Budget Data\n");
-    printf("Display all department budgets: \n")
-// theres ana erroe i cant clear here
-    printf("View budget departments");
-
-    printf("Exit\n");
-
-    printf("Enter your choice from one(1) to four(4): ");
+    printf("2. Display All Department budgets: \n")
+// theres an error i cant clear here
+    printf("3. View Over-Budget Departments:\n");
+    printf("4. Exit\n");
+    printf("Enter your choice from (1-4): ");
 
     if (scanf("%d", &choice) !=1){
         //Thsi will clear invalid output
@@ -41,6 +39,29 @@ do{
         printf("Invalid selection. Kindly enter a valid number. \n");
         continue;
     }
+
+    // new line character left by scanf
+    getchar();
+
+        switch (choice) {
+            case 1:
+                enterBudgetData(departments, &count);
+                // automatically reclculate remaining budgets and status after entering
+                calculateBudgets(departments, count);
+                break;
+            case 2:
+                displayBudgetInformation(departments, count);
+                break;
+            case 3:
+                displayStatus(departments, count);
+                break;
+            case 4:
+                printf("\nExiting Budget Management System. Goodbye!\n");
+                break;
+            default:
+                printf("\nInvalid selection. Please enter a number between 1 and 4.\n");
+        }
+    } while (choice != 4);
 
 }
     return 0;
