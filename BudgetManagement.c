@@ -103,3 +103,12 @@ printf("\n---Enter Department Details---\n");
     (*count)++;
     printf("Department budget successfully added!\n");
 }
+(*count)++;
+    printf("Department budget successfully added!\n");
+}
+
+// perform budget calculations and status 
+void calculateBudgets(Department depts[], int count) {
+    for (int i = 0; i < count; i++) {
+        // Calculate remaining budget
+        depts[i].remainingBudget = depts[i].allocatedBudget - depts[i].expenditure;
