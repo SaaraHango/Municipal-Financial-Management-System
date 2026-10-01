@@ -112,3 +112,59 @@ void calculateBudgets(Department depts[], int count) {
     for (int i = 0; i < count; i++) {
         // Calculate remaining budget
         depts[i].remainingBudget = depts[i].allocatedBudget - depts[i].expenditure;
+
+        // Decision-making structure to set status
+        if (depts[i].expenditure <= depts[i].allocatedBudget) {
+            depts[i].status = 1; // Within budget
+        } else {
+            depts[i].status = 0; // Exceeded budget
+        }
+    }
+}
+
+// 3. Display budget information in the required format
+void displayBudgetInformation(Department depts[], int count) {
+    if (count == 0) {
+        printf("\nNo budget data available to display.\n");
+        return;
+    }
+
+    printf("\n================ MUNICIPAL BUDGET REPORT ================\n");
+    for (int i = 0; i < count; i++) {
+        printf("Department:       %s\n", depts[i].nameDepartment);
+        printf("Allocated Budget: N$%.2f\n", depts[i].allocatedBudget);
+        printf("Expenditure:      N$%.2f\n", depts[i].expenditure);
+        printf("Remaining Budget: N$%.2f\n", depts[i].remainingBudget);
+        printf("Status:           %s\n", depts[i].status == 1 ? "WITHIN BUDGET" : "EXCEEDED BUDGET");
+        printf("---------------------------------------------------------\n");
+    }
+}
+
+// 4. Identify and display departments that exceeded their allocated budget
+void displayStatus(Department depts[], int count) {
+    if (count == 0) {
+        printf("\nNo budget data available.\n");
+        return;
+    }
+
+    int overBudgetCount = 0;
+    printf("\n================ DEPARTMENTS EXCEEDING BUDGET ================\n");
+
+    for (int i = 0; i < count; i++) {
+        // Filter using status flag
+        if (depts[i].status == 0) {
+            overBudgetCount++;
+            double deficit = depts[i].expenditure - depts[i].allocatedBudget;
+            printf("Department:       %s\n", depts[i].nameDepartment);
+            printf("Allocated Budget: N$%.2f\n", depts[i].allocatedBudget);
+            printf("Expenditure:      N$%.2f\n", depts[i].expenditure);
+            printf("Overspent Amount: N$%.2f\n", deficit);
+            printf("Status:           EXCEEDED BUDGET\n");
+            printf("--------------------------------------------------------------\n");
+        }
+    }
+
+    if (overBudgetCount == 0) {
+        printf("All departments are operating WITHIN their allocated budgets.\n");
+    }
+}
