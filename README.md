@@ -12,7 +12,7 @@ The system demonstrates the use of core C programming concepts such as input/out
 - **Members:**
   - Student 1 – Employee Management
   - Student 2 – Budget Management
-  - Student 3 – Supplier Management
+  - Elifas Anna 225166887 – Supplier Management
   - Student 4 – Asset Management
   - Student 5 – Reports
   - Gervásio Miranda - 225047195 – Functions, Integration & Validation
