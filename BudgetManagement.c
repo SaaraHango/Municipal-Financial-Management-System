@@ -20,14 +20,16 @@ void displayBudgetInformation(Department depts[], int count);
 void displayStatus(Department depts[], int count);
 
 int main(){
-Department departments[MAX_DEPARMENTS];
+    // i was missing the T here too
+Department departments[MAX_DEPARTMENTS];
 int count = 0;
 int choice;
 
 do{
     printf("\n====================MUNICIPAL BUDGET MANAGEMENT SYSTEM==========================\n");
     printf("1. Enter Budget Data\n");
-    printf("2. Display All Department budgets: \n")
+    // was missing the semi-colon;
+    printf("2. Display All Department budgets: \n");
 // theres an error i cant clear here
     printf("3. View Over-Budget Departments:\n");
     printf("4. Exit\n");
@@ -72,15 +74,13 @@ do{
 }
 
 // we need to enter departmental name, allocated budget anf expenditure
-void enterBudgetData(Department depts[], int count){
+void enterBudgetData(Department depts[], int*count){
     //the * is a pointer
     // perhaps the pointer needs a int data type
     if (*count >= MAX_DEPARTMENTS){
         printf("\nMaximum department limit (%d) reached.\n", MAX_DEPARTMENTS);
         return;
     }
-
-}
 
 printf("\n---Enter Department Details---\n");
     printf("Department Name: ");
@@ -102,11 +102,8 @@ printf("\n---Enter Department Details---\n");
 
     (*count)++;
     printf("Department budget successfully added!\n");
+    // missed this brace
 }
-(*count)++;
-    printf("Department budget successfully added!\n");
-}
-
 // perform budget calculations and status 
 void calculateBudgets(Department depts[], int count) {
     for (int i = 0; i < count; i++) {
