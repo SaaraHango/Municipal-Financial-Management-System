@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_EMPLOYEES 100
+
+struct Employee {
+    int id;
+    char name[50];
+    char department[30];
+    float basicSalary;
+    float housingAllowance;
+    float transportAllowance;
+};
+
+struct Employee employees[MAX_EMPLOYEES];
+int employeeCount = 0;
+
+float calculateNetSalary(struct Employee emp){
+    return emp.basicSalary + emp.housingAllowance + emp.transportAllowance;
+}
+
+int main(){
+    int choice;
+    do{
+        printf("\n========================================\n");
+        printf("EMPLOYEE MANAGEMENT (MFMS)\n");
+        printf("========================================\n");
+        printf("1. Add Employee\n2. Display Employees\n3. Search by Name (uses strcmp)\n4. Exit\n");
+        printf("Choice: ");
+        scanf("%d",&choice);
+        getchar();
+
+        if(choice==1){
+            if(employeeCount>=MAX_EMPLOYEES){printf("Full!\n"); continue;}
+            struct Employee e;
+            printf("Enter ID: "); scanf("%d",&e.id); getchar();
+            printf("Enter Name: "); fgets(e.name,50,stdin); e.name[strcspn(e.name,"\n")]=0;
+            while(strlen(e.name)==0){printf("Name empty! Re-enter: "); fgets(e.name,50,stdin); e.name[strcspn(e.name,"\n")]=0;}
+            printf("Enter Department: "); fgets(e.department,30,stdin); e.department[strcspn(e.department,"\n")]=0;
+            do{printf("Basic Salary N$: "); scanf("%f",&e.basicSalary);}while(e.basicSalary<0);
+            do{printf("Housing N$: "); scanf("%f",&e.housingAllowance);}while(e.housingAllowance<0);
+            do{printf("Transport N$: "); scanf("%f",&e.transportAllowance);}while(e.transportAllowance<0);
+            employees[employeeCount++]=e;
+            printf("Added! Total %d\n",employeeCount);
+        }
+        else if(choice==2){
+            if(employeeCount==0){printf("No employees.\n"); continue;}
+            for(int i=0;i<employeeCount;i++){
+                printf("ID:%d | %s | Dept:%s | TOTAL N$%.2f\n",employees[i].id,employees[i].name,employees[i].department,calculateNetSalary(employees[i]));
+            }
+        }
+        else if(choice==3){
+            char search[50]; printf("Enter name to search: "); fgets(search,50,stdin); search[strcspn(search,"\n")]=0;
+            int found=0;
+            for(int i=0;i<employeeCount;i++){
+                if(strcmp(employees[i].name,search)==0){
+                    printf("FOUND -> ID:%d | %s | N$%.2f\n",employees[i].id,employees[i].name,calculateNetSalary(employees[i]));
+                    found=1; break;
+                }
+            }
+            if(!found) printf("Not found.\n");
+        }
+    }while(choice!=4);
+    return 0;
+}
