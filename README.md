@@ -11,7 +11,7 @@ The system demonstrates the use of core C programming concepts such as input/out
 ##  Group Information
 - **Group Number:** (add here)
 - **Members:**
-  - TSN Shilongo – Employee Management
+  - TSN Shilongo 225024624 – Employee Management
   - Student 2 – Budget Management
   - Elifas Anna 225166887 – Supplier Management
   - Iipumbu Annelly G 225133547-Asset Management
