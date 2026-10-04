@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include "employees.h"
+#include"budget.h"
+#include"suppliers.h"
+#include"assets.h"
+#include"reports.h"
 
 int main() {
     int choice;
@@ -18,8 +22,12 @@ int main() {
 
         switch(choice) {
             case 1: employeeMenu(); break;
-            case 6: printf("Exiting MFMS... Goodbye!\n"); break;
-            default: printf("Module not yet implemented by teammate.\n");
+             case 2: budgetMenu(); break;
+             case 3: supplierMenu(); break;
+             case 4: assetMenu(); break;
+            case 5: reportMenu(); break 
+                case 6:   ("Exiting MFMS... Goodbye!\n"); break;
+            default: printf("Invalid Choice!\n");
         }
     } while(choice!= 6);
     return 0;
