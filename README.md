@@ -15,8 +15,8 @@ The system demonstrates the use of core C programming concepts such as input/out
   - Saara Hango 221142339– Budget Management
   - Elifas Anna 225166887 – Supplier Management
   - Iipumbu Annelly G 225133547-Asset Management
-  - Gervásio Miranda– Reports
-  - Gervásio Miranda - 225047195 – Functions, Integration & Validation
+  - Hamalwa Jason– Reports
+  - Gervásio Miranda - 225047195 – Functions, Integration & Validation and testing
   - All of us – Testing, Documentation & Git Coordination
 
 ---
