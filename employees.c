@@ -6,7 +6,7 @@ struct Employee employees[MAX_EMPLOYEES];
 int employeeCount = 0;
 
 float calculateNetSalary(struct Employee emp) {
-    return emp.basicSalary + emp.housingAllowance + emp.transportAllowance;
+    return emp.basicSalary + emp.housingAllowance + emp.transportAllowance; 
 }
 
 void displayEmployeeDetails(struct Employee emp) {
