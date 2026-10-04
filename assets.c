@@ -75,7 +75,28 @@ void displayAssets(const Asset assets[], int count)
     }
     printf("Total Asset Value : N$%.2f\n", totalValue);
     }
+    void assetMenu(Asset assets[], int *count) {
+    int choice;
+    do {
+        printf("\n===== ASSET MANAGEMENT =====\n");
+        printf("1. Add Asset\n");
+        printf("2. Display Assets\n");
+        printf("3. Search Asset\n");
+        printf("4. Asset Report\n");
+        printf("5. Back to Main Menu\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
 
+        switch (choice) {
+            case 1: addAsset(assets, count); break;
+            case 2: displayAssets(assets, *count); break;
+            case 3: searchAsset(assets, *count); break;
+            case 4: assetReport(assets, *count); break;
+            case 5: return;
+            default: printf("Invalid choice!\n");
+        }
+    } while (1);
+    }
 
             
 
