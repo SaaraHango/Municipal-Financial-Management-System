@@ -16,5 +16,6 @@ void addAsset(Asset assets[], int *count);
 void displayAssets(const Asset assets[], int count);
 void searchAsset(const Asset assets[], int count);
 void assetReport(const Asset assets[], int count);
+void assetMenu(Asset assets[], int *count);
 
 #endif
